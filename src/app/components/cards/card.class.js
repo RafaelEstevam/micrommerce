@@ -27,14 +27,6 @@ class Card {
 
     cardActivate(){
         return this.plus(this.value);
-        // switch(this.type){
-        //     case 'plus':
-        //         return this.plus(this.value);
-        //     case 'minus':
-        //         return this.minus(this.value);
-        //     default: 
-        //         return '';
-        // }
     }
     
 }
