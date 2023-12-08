@@ -3,17 +3,17 @@ import { useCallback, useEffect, useState } from 'react';
 import Card from './card.class';
 import {handleTypeStyle} from './utils';
 
-const PlusCard = ({type, name, value, callback, id}) => {
+const PlusCard = ({type, name, value, id, setAttackPlus }) => {
 
-    const card = new Card({id, type, name, value, callback});
+    const card = new Card({id, type, name, value});
     const [active, setActive] = useState(false);
 
     const handleActiveCardGame = useCallback(() => {
         setActive(!active)
         if(!active){
-            card.cardActivate();
+            setAttackPlus(card.cardActivate())
         }else{
-            card.cardDeactive();
+            setAttackPlus(card.cardDeactive())
         }
     }, [active]);
 
@@ -21,9 +21,9 @@ const PlusCard = ({type, name, value, callback, id}) => {
         <div className='w-1/4'>
             <button
                 onClick={() => handleActiveCardGame()}
-                className={`p-4 rounded-2xl text-white mb-4 ${active ? 'opacity-50' : 'opacity-100'} ${handleTypeStyle(type)}`}
+                className={`p-4 rounded-2xl text-white mb-4 ${active ? 'opacity-50' : 'opacity-100'} ${handleTypeStyle(card.type)}`}
             >
-                {!active ? '+' : '-'}{value}
+                {!active ? '+' : '-'}{card.value}
             </button>
         </div>
     )

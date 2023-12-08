@@ -44,10 +44,10 @@ export default function template ({children}) {
     // }
 
     return (
-        <>
+        <div>
             {/* <Header/> */}
             <main>{children}</main>
             {/* <Footer/> */}
-        </>
+        </div>
     )
 }

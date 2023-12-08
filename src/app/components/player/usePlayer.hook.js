@@ -1,16 +1,30 @@
 import { useState } from "react";
 
 const cardsOnHand = [
+  { name: "Attack", type: "melee", id: 509, action: "attack" },
   { name: "Attack", type: "melee", id: 5, action: "attack" },
-  { name: "Attack", type: "reach", id: 16, action: "attack" },
-  { name: "Attack", type: "melee", id: 63, action: "attack" },
-  { name: "Attack", type: "reach", id: 612, action: "attack" },
-  { name: "Special", type: "special", id: 1234, action: "", flavorText: "Cure 3 de dano", specialAction: "", value: 3},
+  {
+    name: "Special",
+    type: "special",
+    id: 12345,
+    action: "",
+    flavorText: "Cure 3",
+    specialAction: "life",
+    value: 3,
+  },
+  // { name: "Special", type: "special", id: 11234, action: "", flavorText: "Compre 2", specialAction: "card", value: 2},
+  {
+    name: "Special",
+    type: "special",
+    id: 1433,
+    action: "",
+    flavorText: "+1 Furia",
+    specialAction: "fury",
+    value: 1,
+  },
   { name: "+3", type: "plus", value: 3, id: 1 },
-  { name: "+3", type: "plus", value: 3, id: 3 },
-  { name: "+4", type: "plus", value: 4, id: 4 },
-  { name: "+2", type: "plus", value: 2, id: 434 },
   { name: "+1", type: "plus", value: 1, id: 412 },
+  { name: "+1", type: "plus", value: 1, id: 998 },
 ];
 
 const usePlayer = () => {
@@ -19,6 +33,8 @@ const usePlayer = () => {
   const [cards, setCards] = useState(cardsOnHand);
   const [character, setCharacter] = useState("");
   const [phase, setPhase] = useState("");
+  const [deck, setDeck] = useState([]);
+  const [cemetery, setCemetery] = useState([]);
 
   return {
     life,
@@ -31,6 +47,10 @@ const usePlayer = () => {
     setCharacter,
     phase,
     setPhase,
+    deck,
+    setDeck,
+    cemetery,
+    setCemetery,
   };
 };
 

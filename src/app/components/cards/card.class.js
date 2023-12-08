@@ -24,11 +24,13 @@ class Card {
     }
 
     cardDeactive(){
-        return this.minus(this.value);
+        // return this.minus(this.value);
+        return {name: this.name, type: 'minus', value: this.value, id: this.id};
     }
 
     cardActivate(){
-        return this.plus(this.value);
+        // return this.plus(this.value);
+        return {name: this.name, type: 'plus', value: this.value, id: this.id};
     }
     
 }
