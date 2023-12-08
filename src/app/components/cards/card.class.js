@@ -3,13 +3,15 @@ class Card {
     name = '';
     type = '';
     value = '';
+    flavorText = '';
     callback = () => {}
 
-    constructor({type, name, value, callback, id}){
+    constructor({type, name, value, callback, id, flavorText}){
         this.name = name;
         this.type = type;
         this.value = value;
         this.id = id;
+        this.flavorText = flavorText;
         this.callback = callback;
     }
 
