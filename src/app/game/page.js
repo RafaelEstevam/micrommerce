@@ -2,8 +2,8 @@
 import { useEffect } from "react";
 import Player from "../components/player/player.component";
 import { GameContext } from "./game.context";
-import Scenario from "../components/scenario/scenario.component";
 import useGame from "./useGame.hook";
+import TravelersScenario from "../components/scenarios/travelers/travelers.scenario.component";
 
 const Game = () => {
   const context = useGame();
@@ -14,7 +14,7 @@ const Game = () => {
   
   return (
     <GameContext.Provider value={context}>
-      <Scenario />
+      <TravelersScenario />
       <Player />
     </GameContext.Provider>
   );
