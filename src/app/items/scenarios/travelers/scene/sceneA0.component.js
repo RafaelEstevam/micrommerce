@@ -3,7 +3,7 @@ import Enemy from "../../enemy.component";
 import UseEnemy from "../../enemy.hooks";
 
 const SceneA0 = () => {
-  const [side, setSide] = useState("b");
+  const [side, setSide] = useState("a");
 
   const enemyA = UseEnemy({
     enemyLife: 3,
