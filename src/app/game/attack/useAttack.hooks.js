@@ -23,9 +23,9 @@ export const useAttack = () => {
     }
   }, [attackAction, sum]);
 
-  useEffect(() => {
-    console.log(sum);
-  }, [sum])
+  // useEffect(() => {
+  //   console.log(sum);
+  // }, [sum])
 
   return {
     attackActions,

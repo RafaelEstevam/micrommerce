@@ -8,7 +8,7 @@ const TravelersScenario = () => {
 
     const context = {};
 
-    console.log(scenarioCards);
+    // console.log(scenarioCards);
 
     return (
         <TravelersContext.Provider value={context}>
@@ -16,12 +16,12 @@ const TravelersScenario = () => {
                 <div className='w-3/6 h-4/6'>
                     <div className='flex h-1/2'>
                         {scenarioCards?.map(({id, cards}) => (
-                            <Scenario key={id} cards={cards} side={'a'} />
+                            <Scenario key={id} cards={cards} />
                         ))}
                     </div>
                     <div className='flex h-1/2'>
-                        {scenarioCards2?.map((item) => (
-                            <Scenario key={id} cards={cards} side={'a'} />
+                        {scenarioCards2?.map(({id, cards}) => (
+                            <Scenario key={id} cards={cards} />
                         ))}
                     </div>
                 </div>

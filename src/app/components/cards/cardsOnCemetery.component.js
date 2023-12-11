@@ -7,7 +7,7 @@ const CardsOnCemetery = () => {
 
   useEffect(() => {
     //TODO SHOW CEMETERY
-    console.log(cemetery)
+    // console.log(cemetery)
   }, [cemetery]);
 
   return (
