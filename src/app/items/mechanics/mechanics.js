@@ -14,14 +14,14 @@ export const plusCard = (player, value) => {
   player.card += value;
 };
 
-export const lastActionMechanism = (action, player) => {
-  switch (action.action) {
+export const lastActionMechanism = (action, target) => {
+  switch (action?.action) {
     case "plusLife":
-      return player.setLife(player.life + action.value);
+      return target.setLife(target.life + action.value);
     case "lessLife":
-      return player.setLife(player.life - action.value);
+      return target.setLife(target.life - action.value);
     case "plusFury":
-      return player.setFury(player.fury + action.value);
+      return target.setFury(target.fury + action.value);
     default:
       return "";
   }

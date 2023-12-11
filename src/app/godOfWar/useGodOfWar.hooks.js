@@ -1,10 +1,10 @@
 'use client'
 import {useState} from 'react';
-import {upgradeCards} from '../items/upgradeCards';
-import { Kratos } from '../items/characters/kratos';
-import { Atreus } from '../items/characters/atreus';
-import { Freya } from '../items/characters/freya';
-import UseKratos from '../items/characters/kratos.hooks';
+// import {upgradeCards} from '../items/upgradeCards';
+// import { Kratos } from '../items/characters/kratos/kratos';
+// import UseKratos from '../items/characters/kratos/kratos.hooks';
+// import { Atreus } from '../items/characters/atreus/atreus';
+// import { Freya } from '../items/characters/freya';
 // import { Travelers } from '../items/scenarios/travelers';
 
 const UseGodOfWar = () => {

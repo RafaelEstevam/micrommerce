@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
-import { GodOfWarContext } from "../../godOfWar/godOfWar.context";
+import { GodOfWarContext } from "../../../godOfWar/godOfWar.context";
 import UseKratos from "./kratos.hooks";
-import {lastActionMechanism} from '../mechanics/mechanics';
+import {lastActionMechanism} from '../../mechanics/mechanics';
 
 const Kratos = () => {
 
@@ -9,7 +9,7 @@ const Kratos = () => {
   const kratos = UseKratos();
 
   useEffect(() => {
-    if(lastAction){
+    if(lastAction && lastAction.target === 'Kratos'){
       lastActionMechanism(lastAction, kratos)
       setLastAction(undefined);
     }

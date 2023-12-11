@@ -1,4 +1,4 @@
-const cards = [
+export const freyaCards = [
   {id: 51, type: 'defense', attribute: 'power', value: 2},
   {id: 52, type: 'defense', attribute: 'power', value: 1},
   {id: 53, type: 'defense', attribute: 'power', value: 1, flavorText: 'Causa Dano ao inimigo igual ao dano que você bloqueou'},

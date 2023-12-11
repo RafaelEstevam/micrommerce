@@ -1,4 +1,4 @@
-const cards = [
+export const atreusCards = [
   {id: 31, type: 'defense', attribute: 'power', value: 2},
   {id: 32, type: 'defense', attribute: 'power', value: 1},
   {id: 33, type: 'defense', attribute: 'power', value: 1, flavorText: 'Causa Dano ao inimigo igual ao dano que você bloqueou'},
@@ -23,7 +23,7 @@ export class Atreus {
   fury = 0;
   type = '';
   power = 0;
-  cards = cards;
+  cards = atreusCards;
   position = [[], []]; //Column (0...3), position (0 ou 1)
   
   constructor(){
