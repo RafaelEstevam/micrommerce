@@ -1,11 +1,5 @@
 class Scenario {
 
-    attack = '';
-    type = '';
-    armor = '';
-    name = '';
-    id = '';
-    life = '';
     scenarioAction = () => {};
 
     constructor({armor, attack, id, life, scenarioAction, type, name}){

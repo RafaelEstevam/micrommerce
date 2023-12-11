@@ -5,7 +5,7 @@ export const scenarioCards = [
         id: 1,
         name: 'travelers-1',
         cards: [
-            { id: 1, side: 'a', runes: ['F'], flipAction: 'death', component: <DraugerReach life={3} attack={2} /> },
+            { id: 1, side: 'a', runes: ['F'], flipAction: 'death', component: <DraugerReach life={3} attack={2} />, triggerAction: 'attack', value:2, type: 'reach' },
             { id: 2, side: 'b', runes: ['F'], flipAction: '' }
         ]
     },

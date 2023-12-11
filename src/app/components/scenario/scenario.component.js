@@ -20,6 +20,7 @@ const Scenario= ({cards}) => {
   useEffect(() => {
     const runesSearched = activeSide?.runes?.includes(cardActivate.runes);
     if(runesSearched){
+      console.log(activeSide);
       //TO DO CALL Scenario action
     };
   }, [cardActivate, activeSide])
