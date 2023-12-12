@@ -1,20 +1,20 @@
 'use'
 
 export const kratosCards = [
-  {id: 71, type: 'defense', attribute: 'power', value: 2},
-  {id: 710, type: 'power', attribute: 'power', value: 3},
-  {id: 78, type: 'attack_reach', attribute: 'power', value: 0},
-  {id: 72, type: 'defense', attribute: 'power', value: 1},
-  {id: 712, type: 'power', attribute: 'power', value: 2},
-  {id: 73, type: 'defense', attribute: 'power', value: 1, flavorText: 'Causa Dano ao inimigo igual ao dano que você bloqueou'},
-  {id: 74, type: 'attack_melee', attribute: 'power', value: 2},
-  {id: 75, type: 'attack_melee', attribute: 'power', value: 1},
-  {id: 76, type: 'attack_melee', attribute: 'power', value: 1},
-  {id: 77, type: 'attack_melee', attribute: 'power', value: 1},
-  {id: 79, type: 'attack_reach', attribute: 'power', value: 1},
-  {id: 711, type: 'power', attribute: 'power', value: 2},
-  {id: 713, type: 'power', attribute: 'power', value: 3},
-  {id: 714, type: 'power', attribute: 'power', value: 2},
+  {id: 71, type: 'defense', attribute: 'power', value: 2, action: true},
+  {id: 710, type: 'power', attribute: 'power', value: 3, action: false},
+  {id: 78, type: 'attack_reach', attribute: 'power', value: 0, action: true},
+  {id: 72, type: 'defense', attribute: 'power', value: 1, action: true},
+  {id: 712, type: 'power', attribute: 'power', value: 2, action: false},
+  {id: 73, type: 'defense', attribute: 'power', value: 1, action: true, flavorText: 'Causa Dano ao inimigo igual ao dano que você bloqueou'},
+  {id: 74, type: 'attack_melee', attribute: 'power', value: 2, action: true},
+  {id: 75, type: 'attack_melee', attribute: 'power', value: 1, action: true},
+  {id: 76, type: 'attack_melee', attribute: 'power', value: 1, action: true},
+  {id: 77, type: 'attack_melee', attribute: 'power', value: 1, action: true},
+  {id: 79, type: 'attack_reach', attribute: 'power', value: 1, action: true},
+  {id: 711, type: 'power', attribute: 'power', value: 2, action: false},
+  {id: 713, type: 'power', attribute: 'power', value: 3, action: false},
+  {id: 714, type: 'power', attribute: 'power', value: 2, action: false},
 ]
 
 export class Kratos {

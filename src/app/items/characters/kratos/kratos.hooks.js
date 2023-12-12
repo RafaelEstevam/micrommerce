@@ -18,6 +18,7 @@ const UseKratos = () => {
   const [cards, setCards] = useState([]);
   const [cemetery, setCemetery] = useState([]);
   const [deck, setDeck] = useState(kratosCards);
+  const [activatedCards, setActivatedCards] = useState([]);
 
   const handleSkillOne = useCallback(() => {
     setLife(life + 3);
@@ -35,13 +36,13 @@ const UseKratos = () => {
   const handleDrawCards = useCallback(() => {
     let limit = 0;
     const drawCards = [];
-    while(limit < card){
+    while (limit < card) {
       console.log(limit);
       drawCards.push(deck[limit]);
-      limit ++;
-    };
+      limit++;
+    }
     setCards(drawCards);
-  }, [card, cards, deck])
+  }, [card, cards, deck]);
 
   useEffect(() => {
     if (life <= 0) {
@@ -51,7 +52,7 @@ const UseKratos = () => {
 
   useEffect(() => {
     handleDrawCards();
-  }, [])
+  }, []);
 
   return {
     character,
@@ -78,6 +79,8 @@ const UseKratos = () => {
     setCemetery,
     deck,
     setDeck,
+    activatedCards,
+    setActivatedCards,
     handleActiveSkills,
   };
 };

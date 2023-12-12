@@ -1,4 +1,9 @@
-const Card = ({ card }) => {
+import {useState, useEffect, useCallback} from 'react';
+
+const Card = ({ card, activatedCards, setActivatedCards, selectedActionCard, setSelectedActionCard, disabled }) => {
+
+  const [activated, setActivated] = useState(false);
+
   const style = () => {
     switch (card.type) {
       case "defense":
@@ -14,10 +19,32 @@ const Card = ({ card }) => {
     }
   };
 
+  const handleActivateCard = useCallback(() => {
+    const searchedCard = activatedCards.find((item) => item.id === card.id);
+    const filteredCards = activatedCards.filter((item) => item.id !== card.id);
+    if(searchedCard){
+      setActivatedCards(filteredCards);
+      if(card.action){
+        setSelectedActionCard(undefined);
+      }
+    }
+    if(!searchedCard){
+      setActivatedCards([...activatedCards, ...[card]]);
+      if(card.action){
+        setSelectedActionCard(card);
+      }
+    }
+  }, [activatedCards])
+  
   return (
     <div className="flex h-20">
       <button
-        className={`${style()} text-white flex flex-col items-center h-full rounded-md overflow-hidden`}
+        disabled={disabled}
+        onClick={() => {
+          setActivated(!activated);
+          handleActivateCard();
+        }}
+        className={`${style()} text-white flex flex-col items-center h-full rounded-md overflow-hidden ${activated && ' border-green-500 -mt-4'} border-4 ${disabled && 'opacity-10'}`}
       >
         <p className="p-2">{card.type}</p>
         {card.value > 0 && (
