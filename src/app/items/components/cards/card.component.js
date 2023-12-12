@@ -1,6 +1,6 @@
-import {useState, useEffect, useCallback} from 'react';
+import {useState, useCallback} from 'react';
 
-const Card = ({ card, activatedCards, setActivatedCards, selectedActionCard, setSelectedActionCard, disabled }) => {
+const Card = ({ card, activatedCards, setActivatedCards, setSelectedActionCard, disabled }) => {
 
   const [activated, setActivated] = useState(false);
 

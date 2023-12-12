@@ -9,6 +9,12 @@ const Character = ({ character }) => {
       <CardsOnDeck {...character} />
       <CardsOnCemetery  {...character}/>
       <CardsOnHand  {...character}/>
+      <button
+        className="p-2 text-white bg-orange-500"
+        onClick={() => character.handleFinalizeAttack()}
+      >
+        Atacar
+      </button>
       
       <div className="border-2">
         <p className="text-slate-500 text-md">{character.character}</p>
