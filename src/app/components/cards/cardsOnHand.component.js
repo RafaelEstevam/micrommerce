@@ -7,7 +7,7 @@ import SpecialCard from "../cards/special.component";
 import DefenseCard from "../cards/defense.component";
 import { GameContext } from "@/app/game/game.context";
 
-const CardsOnHand = () => {
+const CardsOnHand = ({cards, setCards, cemetery, setCemetery}) => {
   const {
     attackType,
     setAttackType,
@@ -19,7 +19,6 @@ const CardsOnHand = () => {
     setSum
   } = useAttack();
 
-  const { cards, setCards, cemetery, setCemetery } = useContext(PlayerContext);
   const { setAction } = useContext(GameContext);
 
   const handleResetMove = () => {
@@ -55,7 +54,7 @@ const CardsOnHand = () => {
             setAttackPlus={setAttackPlus}
           />
         );
-      case "melee":
+      case "attack_melee":
         return (
           <AttackCard
             {...card}
@@ -104,7 +103,11 @@ const CardsOnHand = () => {
     <div className="flex justify-center absolute bottom-0 w-full">
       <div className="w-1/2">
         <div className="flex gap-4">
-          {cards.length > 0 && cards?.map((item) => renderCards(item))}
+          {cards.length > 0 && cards?.map((item) => (
+            <div key={item.id}>
+              {renderCards(item)}
+            </div>
+          ))}
           <button
             className="p-4 rounded-2xl text-white mb-4 bg-orange-500"
             onClick={() => handleFinalizeMove({ attackType, sum, plusActions })}

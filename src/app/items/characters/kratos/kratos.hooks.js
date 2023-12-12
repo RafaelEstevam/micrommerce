@@ -2,18 +2,22 @@
 
 import { useCallback, useContext, useState, useEffect } from "react";
 import { kratosCards } from "./kratos";
-import { GodOfWarContext } from "../../../godOfWar/godOfWar.context";
 
 const UseKratos = () => {
   const furyLimit = 5;
-  const character = 'Kratos';
+  const character = "Kratos";
+
   const [life, setLife] = useState(10);
-  const [cards, setCards] = useState(kratosCards);
   const [card, setCard] = useState(7);
   const [fury, setFury] = useState(0);
   const [actionType, setActionType] = useState(undefined);
   const [power, setPower] = useState(0);
-  const [position, setPosition] = useState([[], []]);
+  const [position, setPosition] = useState([0, 0]);
+  const [stun, setStun] = useState(false);
+  const [poison, setPoison] = useState(false);
+  const [cards, setCards] = useState([]);
+  const [cemetery, setCemetery] = useState([]);
+  const [deck, setDeck] = useState(kratosCards);
 
   const handleSkillOne = useCallback(() => {
     setLife(life + 3);
@@ -27,6 +31,27 @@ const UseKratos = () => {
     handleSkillOne();
     handleSkillTwo();
   }, [life, power]);
+
+  const handleDrawCards = useCallback(() => {
+    let limit = 0;
+    const drawCards = [];
+    while(limit < card){
+      console.log(limit);
+      drawCards.push(deck[limit]);
+      limit ++;
+    };
+    setCards(drawCards);
+  }, [card, cards, deck])
+
+  useEffect(() => {
+    if (life <= 0) {
+      setStun(true);
+    }
+  }, [life]);
+
+  useEffect(() => {
+    handleDrawCards();
+  }, [])
 
   return {
     character,
@@ -45,7 +70,15 @@ const UseKratos = () => {
     setPower,
     position,
     setPosition,
-    handleActiveSkills
+    stun,
+    setStun,
+    poison,
+    setPoison,
+    cemetery,
+    setCemetery,
+    deck,
+    setDeck,
+    handleActiveSkills,
   };
 };
 

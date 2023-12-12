@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { GodOfWarContext } from "../../../godOfWar/godOfWar.context";
-import {lastActionMechanism} from '../../mechanics/mechanics';
 import UseFreya from "./freya.hooks";
+import Character from '../character.component'
 
 const Freya = () => {
 
@@ -9,18 +9,25 @@ const Freya = () => {
   const freya = UseFreya();
 
   useEffect(() => {
-    if(lastAction && lastAction.target === 'Freya'){
-      lastActionMechanism(lastAction, freya)
-      setLastAction(undefined);
+    if (lastAction?.target === "player") {
+      if (
+        lastAction.targetPosition[0] === freya.position[0] &&
+        lastAction.targetPosition[1] === freya.position[1]
+      ) {
+        mechanics[lastAction?.action](freya, lastAction?.value);
+      }
     }
+
+    setLastAction(undefined);
   }, [lastAction, freya]);
 
-  useEffect(() => {
-    console.log(freya);
-  }, [freya])
-
   return (
-    <></>
+    <>
+      <Character
+        character={freya}
+        name="Freya"
+      />
+    </>
   )
 };
 

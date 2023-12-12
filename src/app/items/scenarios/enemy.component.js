@@ -1,29 +1,40 @@
-'use client'
-import {useContext, useEffect} from 'react';
+"use client";
+import { useContext, useEffect } from "react";
 import { GodOfWarContext } from "../../godOfWar/godOfWar.context";
-import {lastActionMechanism } from '../mechanics/mechanics';
+import { mechanics } from "../mechanics/mechanics";
 
-const Enemy = (enemy) => {
-
+const Enemy = ({ enemy }) => {
   const { lastAction, setLastAction } = useContext(GodOfWarContext);
 
   useEffect(() => {
-    if(lastAction?.target === enemy?.enemyPosition){
-      lastActionMechanism(lastAction, enemy)
-      setLastAction(undefined);
+    if (lastAction?.target === "enemy") {
+      if (
+        lastAction.targetPosition[0] === enemy.enemyPosition[0] &&
+        lastAction.targetPosition[1] === enemy.enemyPosition[1]
+      ) {
+        if (lastAction.targetSide === enemy.side) {
+          mechanics[lastAction?.action](enemy, lastAction?.value);
+        }
+      }
     }
+
+    setLastAction(undefined);
   }, [lastAction, enemy]);
 
   return (
     <div>
       <div>
-        {enemy?.enemyRune?.map((item) => (
-          <p className='text-red-500' key={item}>{item}</p>
+        {enemy?.rune?.map((item) => (
+          <p className="text-red-500" key={item}>
+            {item}
+          </p>
         ))}
       </div>
       <div>
-        <p className='text-green-500'>{enemy?.enemyLife === 0 ? 'death' : enemy?.enemyLife}</p>
-        <p className='text-slate-500'>{enemy?.enemyPower}</p>
+        <p className="text-green-500">
+          {enemy?.life <= 0 ? "death" : enemy?.life}
+        </p>
+        <p className="text-slate-500">{enemy?.power}</p>
       </div>
     </div>
   );

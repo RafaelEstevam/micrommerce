@@ -6,26 +6,12 @@ import UseGodOfWar from "./useGodOfWar.hooks";
 import Kratos from "../items/characters/kratos/kratos.component";
 import Freya from "../items/characters/freya/freya.component";
 import Atreus from "../items/characters/atreus/atreus.component";
-import Enemy from '../items/scenarios/enemy.component'
+import Enemy from "../items/scenarios/enemy.component";
 
-import TravelersScenario from '../items/scenarios/travelers/travelers.component';
+import TravelersScenario from "../items/scenarios/travelers/travelers.component";
 
 const GodOfWar = () => {
   const { lastAction, setLastAction } = UseGodOfWar();
-
-  // const { characters, missionActivated, handleChooseCaracters, handleChooseScenario } =
-  //   UseGodOfWar();
-
-  // useEffect(() => {
-  //   handleChooseCaracters();
-  //   handleChooseScenario();
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(missionActivated);
-  // }, [missionActivated]);
-
-  // console.log(characters);
 
   const context = {
     lastAction,
@@ -80,7 +66,39 @@ const GodOfWar = () => {
           Ataque Kratos
         </button>
       </div> */}
+
+      {/* <button
+        className="bg-slate-500"
+        onClick={() =>
+          setLastAction({
+            action: "lessLife",
+            value: 2,
+            target: "player",
+            targetPosition: [0, 0],
+          })
+        }
+      >
+        Ataque do inimigo
+      </button> */}
+      {/* <button
+        className="bg-slate-500"
+        onClick={() =>
+          setLastAction({
+            action: "lessLife",
+            value: 1,
+            target: "enemy",
+            targetPosition: [0, 0],
+            targetSide: "a",
+          })
+        }
+      >
+        Ataque Kratos
+      </button> */}
       <TravelersScenario />
+      <div className="flex gap-4">
+        <Kratos />
+        {/* <Freya /> */}
+      </div>
     </GodOfWarContext.Provider>
   );
 };
